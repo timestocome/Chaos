@@ -11,10 +11,13 @@ import matplotlib.animation as animation
 
 
 fig = plt.figure(figsize=(16, 16))
+
 ax1 = fig.add_subplot(1,1,1)
 ax1.set_ylim([-30, 30])
 ax1.set_xlim([-30, 30])
 plt.title("Random Walk")
+
+
 
 # returns int of value: -1, 0, 1
 def randomWalk():
@@ -43,5 +46,18 @@ def animate(i):
 
 
 ani = animation.FuncAnimation(fig, animate, interval=10, frames=1000, repeat=False)
+plt.show()
 
+
+fig = plt.figure(figsize=(12,12))
+plt.subplot(2,1,1)
+plt.hist(location_x)
+plt.title('X')
+
+plt.subplot(2,1,2)
+plt.hist(location_y)
+plt.title('Y')
+plt.hist(location_y)
+
+plt.savefig('random_histogram.png')
 plt.show()
